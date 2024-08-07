@@ -32,6 +32,6 @@ export const ProjectList: intProject[] = [
         projectTitle: "Apple Homepage Clone Project",
         projectDescription: "placeholder 3",
         completionDate: "02/03/2024",
-        projectLabels: ["React.js", "Javascript", "HTML", "CSS"]
+        projectLabels: ["Javascript", "HTML", "CSS"]
     }
     ]

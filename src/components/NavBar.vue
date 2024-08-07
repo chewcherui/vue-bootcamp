@@ -1,5 +1,6 @@
 <script lang="ts">
-import { ref } from "vue";
+
+import { ref, defineEmits } from 'vue'
 
 </script>
 
@@ -7,7 +8,7 @@ import { ref } from "vue";
     <div class="navbar-space">
         <div class="nav-item">
             <span>Site logo</span>
-            <span>Dropdowns</span>
+            <button @click="$emit(toggleClick)" type="button"> Dark | Light mode toggle </button>
         </div>
     </div>
 </template>
@@ -15,7 +16,7 @@ import { ref } from "vue";
 <style scoped>
 .navbar-space {
     margin: 2px;
-    position: top ;
+    position: top;
 }
 
 .nav-item{
@@ -24,4 +25,5 @@ import { ref } from "vue";
     justify-content: space-between;
     padding: 6px;
 }
+
 </style>

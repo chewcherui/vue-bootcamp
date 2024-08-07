@@ -1,10 +1,19 @@
 <script setup lang="ts">
-// import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { ProjectList } from './ProjectList'
 import ContactInfo from './ContactInfo.vue'
 import PortfolioCard from './PortfolioCard.vue'
 
 defineProps<{ pageTitle: string }>()
+
+const experienceLevel = computed(() => {
+  if (ProjectList.length > 10) {
+    return "an experienced";
+  } else {
+    return "a budding"
+  }
+}
+)
 
 </script>
 
@@ -18,6 +27,7 @@ defineProps<{ pageTitle: string }>()
 
   <!-- Portfolio -->
   <div class="homepage-banner">
+    <h2> I am {{ experienceLevel }} developer </h2>
     <portfolio-card :projects="ProjectList"></portfolio-card>
   </div>
 
@@ -33,9 +43,11 @@ defineProps<{ pageTitle: string }>()
 .homepage-banner {
   height: 35rem;
   width: 60vw;
+  margin: 1rem;
   padding: 2rem;
   text-wrap: pretty;
   overflow: hidden;
+  border: 1px solid black
 }
 
 </style>
