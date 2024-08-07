@@ -1,55 +1,46 @@
-<script lang="ts">
+<script setup lang="ts">
 
-const projectList: {
-    projectID: number,
-    projectImg: string,
-    projectTitle: string,
-    projectDescription: string,
-    completionDate: string,
-    projectLabels: string[]
-}[] = [ 
-    {
-        projectID: 3,
-        projectImg: "",
-        projectTitle: "Todo List Project",
-        projectDescription: "placeholder 1",
-        completionDate: "02/03/2024",
-        projectLabels: ["React.js", "Javascript", "HTML", "CSS"]
-    },
-    {
-        projectID: 2,
-        projectImg: "",
-        projectTitle: "Title Generator Project",
-        projectDescription: "placeholder 2",
-        completionDate: "02/01/2024",
-        projectLabels: ["Javascript", "HTML", "CSS"]
-    },
-    {
-        projectID: 1,
-        projectImg: "",
-        projectTitle: "Apple Homepage Clone Project",
-        projectDescription: "placeholder 3",
-        completionDate: "02/03/2024",
-        projectLabels: ["React.js", "Javascript", "HTML", "CSS"]
-    }
-    ]
+import { intProject } from './ProjectList'
+
+defineProps<{ projects: intProject[]}>()
+
 </script>
 
 <template>
-    <div class="project-card">
-        <h1>{{ projectTitle }}</h1>
-        <p>Project description: {{ projectDescription }}</p>
-        <p>Completion date: {{ completionDate }}</p>
-        <p>Labels: {{ projectLabels }} </p>
+    <div>
+        <ul>
+            <li v-for="project in projects" :key="project.projectID"> 
+                <h1>{{ project.projectTitle }}</h1>
+                <img :src=project.projectImg />
+                <p>Project description: {{ project.projectDescription }}</p>
+                <p>Completion date: {{ project.completionDate }}</p>
+                <p>Labels: {{ project.projectLabels }} </p>
+            </li>
+        </ul>
     </div>
 </template>
 
 <style scoped>
-.project-card {
-    width: 20vw;
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li{
+    list-style: none;
+    padding: 1rem;
+    margin: 1rem;
+    width: 25%;
+    height: auto;
     border: 1px solid;
     border-radius: 25px;
     background-color: #3d3d3d;
     color: #fff;
+}
+
+img{
+    width: 40%;
+    height: auto;
 }
 </style>

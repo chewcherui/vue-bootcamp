@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+// import { ref } from 'vue'
+import { ProjectList } from './ProjectList'
 import ContactInfo from './ContactInfo.vue'
 import PortfolioCard from './PortfolioCard.vue'
 
 defineProps<{ pageTitle: string }>()
 
-const count = ref(0)
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const count = ref(0)
 
   <!-- Portfolio -->
   <div class="homepage-banner">
-    <portfolio-card></portfolio-card>
+    <portfolio-card :projects="ProjectList"></portfolio-card>
   </div>
 
   <!-- Contact information -->
@@ -31,9 +31,11 @@ const count = ref(0)
 
 <style scoped>
 .homepage-banner {
-  height: 20rem;
-  width: 80vw;
+  height: 35rem;
+  width: 60vw;
   padding: 2rem;
   text-wrap: pretty;
+  overflow: hidden;
 }
+
 </style>
